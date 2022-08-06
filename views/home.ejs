@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="/css/eachpost.css">
+<link rel="stylesheet" href="/css/eachcomment.css">
+<link rel="stylesheet" href="/css/home.css">
+
+<div class="home-container">
+  <% if(locals.user) { %>
+
+    <!--Posts in the Middle -->
+    <section id="feed-posts">
+
+      <!--Create Posts here -->
+        <div id="feed-posts-create">
+          <h4>Feed</h4>     
+          <form action="/posts/createpost" id="new-post-form" method="POST">
+            <textarea
+              name="content"
+              cols="30"
+              rows="3"
+              placeholder="Type Here..."
+            ></textarea>
+            <button type="submit" value="Post">Post</button>
+          </form>     
+        </div>
+
+      <!--See all the Posts here -->
+      <% if(locals.user) { %>
+        <div id="posts-list-container">
+          <ul>
+            <% for(post of posts_list) { %>
+              <%- include('_post') %>
+            <% } %>
+          </ul>
+        </div>
+      <% } %>
+    
+    </section>
+  <% } %>
+
+  <!--Friend List Panel -->
+  <% if(locals.user) { %>
+    <section id="user-friends">
+      <h4>Friend List</h4>
+      <% for (u of all_users) { %>
+        <p><a href="/users/profile/<%=u.id%>"><%=u.name%></a></p>
+      <% } %>
+    </section>
+  <% } %>
+
+  <%- include('_chat_box'); %>
+</div>
+
+<!-- Scripts for Posts and Comments -->
+<script src="/js/home_posts_comments.js"></script>
+<script src="/js/home_posts.js"></script>
+
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function () {
+      let self = this;
+      let toggleLike = new ToggleLike(self);
+    });
+</script>
+<script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user) { %>
+<script>
+  new ChatEngine("user-chat-box", "<%=locals.user.email%>");
+</script>
+<% } %>

@@ -1,0 +1,12 @@
+<li id="comment-<%=comment._id%>" class="eachcomment-container">
+  <p><%=comment.user.name%></p>
+  <input type="text" value="<%=comment.content%>" disabled></input>
+    
+  <!--Make sure the owner of the post can delete comments-->
+  <% if (locals.user && locals.user.id == comment.user.id) { %>
+    <a class="delete-comment-button" href="/comments/deletecomment/<%=comment.id%>">Delete Comment</a>
+  <% } %>
+
+  <a class="toggle-like-button" data-likes="<%=comment.likes.length%>" href="/likes/toggle/?id=<%comment._id%>&type=Comment"><%= comment.likes.length%> Likes</a>
+</li>
+

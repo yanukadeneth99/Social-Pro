@@ -1,0 +1,64 @@
+.eachpost-container {
+  border: 1px solid red;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  list-style: none;
+
+  .eachpost-header {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid rgba(18, 121, 95, 0.05);
+
+    .eachpost-header-name {
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 60%;
+      height: auto;
+    }
+
+    .eachpost-header-date {
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 40%;
+      height: 10%;
+      font-size: 8px;
+    }
+  }
+
+  .eachpost-body {
+    display: flex;
+    width: 96%;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    textarea {
+      width: 100%;
+    }
+
+    .delete-post-button {
+      padding-right: 7px;
+      text-decoration: none;
+    }
+  }
+
+  .eachpost-comment-container {
+    font-size: 13px;
+
+    .eachcomment {
+      padding-top: 20px;
+      padding-bottom: 40px;
+      border: 1px solid rgba(18, 121, 95, 0.15);
+
+      ul {
+        list-style: none;
+      }
+    }
+  }
+}

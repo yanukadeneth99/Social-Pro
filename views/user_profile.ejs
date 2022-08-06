@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/user_profile.css" />
+<h1>Profile Page</h1>
+<img src="<%=user.avatar%>" alt="<%=user.name%>" width="100"/>
+
+<% if(user.id == profile_user.id) { %>
+<!--Same User -->
+<form action="/users/update-profile/<%=profile_user.id%>" enctype="multipart/form-data" method="post">
+  <input type="text" name="name" value="<%=profile_user.name%>" /> <br />
+  <input type="email" name="email" value="<%=profile_user.email%>" /><br />
+  <input type="password" name="password" value="<%=profile_user.password%>" /><br />
+
+  <input type="file" name="avatar" placeholder="Profile Picture">
+  <br /><br />
+  <button type="submit">Change</button>
+</form>
+
+<% } else { %>
+<!--Other User-->
+<p><%= profile_user.name %></p>
+<p><%= profile_user.email %></p>
+
+<% } %>
+
+<script ref="/js/user_profile.js"></script>

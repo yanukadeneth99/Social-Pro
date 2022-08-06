@@ -1,0 +1,44 @@
+<!--Each Post-->
+<li id="post-<%=post._id%>" class="eachpost-container">
+
+  <!--Header of Each Post-->
+  <div class="eachpost-header">
+    <h4 class="eachpost-header-name"><%=post.user.name%></h4>
+    <p class="eachpost-header-date"><%=post.createdAt%></p>
+  </div>
+
+  <!--Body of Each Post-->
+  <div class="eachpost-body">
+
+    <% if(locals.user && locals.user.id== post.user.id) { %>
+      <a class="delete-post-button" href="/posts/deletepost/<%= post.id %>">X</a>
+    <% } %>
+
+    <textarea name="content" cols="30" rows="15" disabled> <%=post.content%></textarea>
+    
+  </div>
+  <!--Footer of Each Post-->
+  <div class="eachpost-bottom">
+    <a class="toggle-like-button" data-likes="<%=post.likes.length%>" href="/likes/toggle/?id=<%post._id%>&type=Post"><%= post.likes.length%> Likes</a>
+  </div>
+
+  <div class="eachpost-comment-container">
+    <form action="/comments/createcomment" id="post-<%=post._id%>-comments-form" method="post">
+      <p><%=post.user.name%></p>
+      <input name="content" type="text" placeholder="Enter your comment here"></input>
+      <input type="hidden" name="post" value="<%=post._id%>" />
+      <button type="submit">Comment</button>
+    </form>
+ 
+
+    <div class="post-comments-list">
+      <ul id="post-comments-<%post._id%>">
+        <% for(comment of post.comments) { %> 
+          <% if(locals.user) { %> 
+            <%-include('_comment'); %> 
+          <% } %> 
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</li>

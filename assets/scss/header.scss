@@ -1,0 +1,70 @@
+#layout-header {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  background-color: teal;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+
+    .header-logo {
+      padding: 2px;
+      padding-left: 20px;
+      width: 80%;
+      text-align: left;
+      margin-top: auto;
+      margin-bottom: auto;
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    .auth-links {
+      width: 20%;
+      list-style-type: none;
+      text-align: right;
+      font-size: 14px;
+      margin-top: auto;
+      margin-bottom: auto;
+      overflow: hidden;
+      ul {
+        margin: 5% 5px;
+        display: flex;
+        list-style: none;
+
+        li {
+          display: inline;
+          float: left;
+          border-right: 1px solid darkseagreen;
+
+          a {
+            display: block;
+            padding: 3px;
+            padding-right: 6px;
+            padding-left: 6px;
+            text-decoration: none;
+            color: black;
+          }
+
+          a:hover {
+            background-color: cadetblue;
+          }
+        }
+
+        li:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}

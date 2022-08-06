@@ -1,0 +1,52 @@
+#layout-header {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  top: 0;
+  background-color: teal; }
+  #layout-header nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 1px 1px 1px lightgrey; }
+    #layout-header nav .header-logo {
+      padding: 2px;
+      padding-left: 20px;
+      width: 80%;
+      text-align: left;
+      margin-top: auto;
+      margin-bottom: auto; }
+      #layout-header nav .header-logo a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold; }
+    #layout-header nav .auth-links {
+      width: 20%;
+      list-style-type: none;
+      text-align: right;
+      font-size: 14px;
+      margin-top: auto;
+      margin-bottom: auto;
+      overflow: hidden; }
+      #layout-header nav .auth-links ul {
+        margin: 5% 5px;
+        display: flex;
+        list-style: none; }
+        #layout-header nav .auth-links ul li {
+          display: inline;
+          float: left;
+          border-right: 1px solid darkseagreen; }
+          #layout-header nav .auth-links ul li a {
+            display: block;
+            padding: 3px;
+            padding-right: 6px;
+            padding-left: 6px;
+            text-decoration: none;
+            color: black; }
+          #layout-header nav .auth-links ul li a:hover {
+            background-color: cadetblue; }
+        #layout-header nav .auth-links ul li:last-child {
+          border-right: none; }
